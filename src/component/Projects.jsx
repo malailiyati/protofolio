@@ -9,8 +9,16 @@ const items = [
     year: "2025",
     desc: "Schedule filtering, seat selection, payment, admin dashboard.",
     stack: ["React", "Redux", "Tailwind", "Go (Gin)", "PostgreSQL", "Docker"],
-    demo: "",
-    repo: "https://github.com/malailiyati/ticketing-react",
+    repos: [
+      {
+        label: "Frontend",
+        url: "https://github.com/malailiyati/ticketing-react",
+      },
+      {
+        label: "Backend",
+        url: "https://github.com/malailiyati/backendticktitz",
+      },
+    ],
     image: tickitzImg,
     imageAlt: "Tickitz web app screenshot",
   },
@@ -19,8 +27,16 @@ const items = [
     year: "2025",
     desc: "Top-Up, transfer, PIN modal, transaction history, responsive UI.",
     stack: ["React", "Redux", "Tailwind", "Go (Gin)", "PostgreSQL"],
-    demo: "",
-    repo: "https://github.com/malailiyati/prospera-wallet-frontend",
+    repos: [
+      {
+        label: "Frontend",
+        url: "https://github.com/malailiyati/prospera-wallet-frontend",
+      },
+      {
+        label: "Backend",
+        url: "https://github.com/malailiyati/prospera-wallet-backend",
+      },
+    ],
     image: prosperaImg,
     imageAlt: "Prospera web app screenshot",
   },
@@ -76,30 +92,20 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Actions */}
-                <div className="mt-4 flex items-center gap-3 text-sm">
-                  {/* {p.demo && (
+                {/* Actions (Frontend & Backend Repos) */}
+                <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                  {p.repos.map((r) => (
                     <a
-                      href={p.demo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="px-3 py-1.5 rounded-lg bg-[var(--color--primary)] text-[#5A0B1E] hover:opacity-90 transition"
-                      aria-label={`Open live demo of ${p.title}`}
-                    >
-                      Live Demo
-                    </a>
-                  )} */}
-                  {p.repo && (
-                    <a
-                      href={p.repo}
+                      key={r.label}
+                      href={r.url}
                       target="_blank"
                       rel="noreferrer"
                       className="px-3 py-1.5 rounded-lg border border-white/15 text-white/90 hover:bg-white/10 transition"
-                      aria-label={`Open repository of ${p.title}`}
+                      aria-label={`Open ${r.label} repository of ${p.title}`}
                     >
-                      Repository
+                      {r.label} Repo
                     </a>
-                  )}
+                  ))}
                 </div>
               </div>
             </article>
